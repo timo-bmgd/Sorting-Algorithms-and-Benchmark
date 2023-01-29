@@ -2,15 +2,21 @@ package Sorting;
 
 public class Benchmark {
     public static void main(String[] args) {
-        int[] unsorted = createBenchmarkValues(500,10000);
+        int size = 50000;
+        int range = 2000000;
+        int[] unsorted = createBenchmarkValues(size,range);
+        System.out.println("Quantity of numbers in array:"+size);
+        System.out.println("Numbers ranging from 0 to:"+range);
         long currentTime = System.nanoTime();
         SortingAlgorithms.mergeSort(unsorted);
         System.out.println("Mergesort    :"+(System.nanoTime()-currentTime)/1000000.0 +"ms");
+        unsorted = createBenchmarkValues(size,range);
         currentTime = System.nanoTime();
         SortingAlgorithms.selectionSort(unsorted);
         System.out.println("Selectionsort:"+(System.nanoTime()-currentTime)/1000000.0 +"ms");
+        unsorted = createBenchmarkValues(size,range);
         currentTime = System.nanoTime();
-        SortingAlgorithms.insertionSort(unsorted);
+        int[] a = SortingAlgorithms.insertionSort(unsorted);
         System.out.println("Insertionsort:"+(System.nanoTime()-currentTime)/1000000.0 +"ms");
         currentTime = System.nanoTime();
 
